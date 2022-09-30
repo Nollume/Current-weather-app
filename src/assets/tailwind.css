@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body{
+		@apply bg-neutral-900 text-neutral-200
+	}
+}
+
+@layer utilities {
+	.my-font {
+		font-family: 'Mukta', sans-serif;
+	}
+}
+
+@layer components {
+	input::placeholder {
+		@apply text-gray-700 opacity-100;
+	}
+
+	input:-ms-input-placeholder {
+		@apply text-gray-700 opacity-100;
+	}
+
+	input::-ms-input-placeholder {
+		@apply text-gray-700 opacity-100;
+	}
+}
