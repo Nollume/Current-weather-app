@@ -14,7 +14,7 @@ const SearchInput = ({ getSerach }) => {
 				autoFocus
 				name="search"
 				placeholder="Search for a city"
-				className="bg-neutral-200 text-neutral-900 rounded-md my-2 w-[85%] p-2 border-b-2 border-black focus:outline-none focus:shadow-[0px_1px_0_0_#004E71] sm:w-[65%] lg:w-1/2 xl:w-[40%] "
+				className="bg-neutral-200/50 text-neutral-700 rounded-md my-2 w-[85%] p-2  focus:outline-none  sm:w-[65%] lg:w-1/2 xl:w-[40%] "
 			/>
 		</div>
 	)

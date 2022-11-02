@@ -8,7 +8,7 @@ import sunset from '../assets/icons/icons8-sunset-64.png'
 import sunrise from '../assets/icons/icons8-sunrise-64.png'
 import axios from 'axios'
 
-const ByCity = ({ extractData }) => {
+const ByCity = ({ extractData, changeBg }) => {
 	const [currentLocation, setCurrentLocation] = useState([])
 	const [placeData, setPlaceData] = useState([])
 	const [Loading, setLoading] = useState(false)
@@ -57,6 +57,7 @@ const ByCity = ({ extractData }) => {
 				throw new Error('could not fetch data')
 			}
 			setCurrentLocation(extractData(responseWeather.data))
+
 			setError('')
 		} catch (err) {
 			if (
@@ -73,20 +74,27 @@ const ByCity = ({ extractData }) => {
 	}
 	useEffect(() => {
 		getSearchResults()
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [search])
+	useEffect(() => {
+		changeBg(currentLocation.main?.temp)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [currentLocation.main?.temp])
 	return (
-		<main className="w-full px-4 ">
-			<div className="py-2 relative ">
+		<main className="w-full  px-4">
+			<div className="py-2 relative text-slate-700">
 				<SearchInput getSerach={getSerach} />
-				{error && <p className="text-center my-8"> {error}</p>}
-				{Loading && <p className="text-center my-8">Loading...</p>}
+				{error && <p className="text-center text-slate-700 my-8"> {error}</p>}
+				{Loading && (
+					<p className="text-center text-slate-700 my-8">Loading...</p>
+				)}
 				{search && error !== 'could not find the city' && (
 					<div className="flex flex-col gap-1 items-center">
 						<h2 className=" text-2xl ">
 							{placeData[0]?.name + ' ' + placeData[0]?.country}
 						</h2>
-						<h1 className="text-yellow-200 text-4xl ">
+						<h1 className="text-slate-700 text-4xl ">
 							{currentLocation.main?.temp} &#176;C{' '}
 						</h1>
 
@@ -99,7 +107,7 @@ const ByCity = ({ extractData }) => {
 						)}
 
 						<div className="grid grid-cols-3 grid-rows-2 place-items-center gap-2">
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								<img
 									className="h-1/2 w-auto"
 									src={humidity}
@@ -110,7 +118,7 @@ const ByCity = ({ extractData }) => {
 									{currentLocation.main?.humidity}%
 								</p>
 							</div>
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								<img
 									className="h-1/2 w-auto"
 									src={Cloudiness}
@@ -121,7 +129,7 @@ const ByCity = ({ extractData }) => {
 									{currentLocation.clouds?.all}%
 								</p>
 							</div>
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								<img className="h-1/2 w-auto" src={wind} alt="wind icon" />
 								<span className="text-lg font-bold whitespace-nowrap">
 									Wind speed
@@ -133,7 +141,7 @@ const ByCity = ({ extractData }) => {
 									</abbr>
 								</p>
 							</div>
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								<img
 									className="h-1/2 w-auto"
 									src={sunrise}
@@ -146,7 +154,7 @@ const ByCity = ({ extractData }) => {
 									).toLocaleTimeString()}
 								</p>
 							</div>
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								<img className="h-1/2 w-auto" src={sunset} alt="sunset icon" />
 								<span className="text-lg font-bold">Sunset</span>
 								<p className="whitespace-nowrap">
@@ -155,7 +163,7 @@ const ByCity = ({ extractData }) => {
 									).toLocaleTimeString()}
 								</p>
 							</div>
-							<div className="w-full h-full flex flex-col items-center justify-around bg-yellow-200 text-neutral-900 p-2 rounded-md">
+							<div className="w-full h-full flex flex-col items-center justify-around  bg-slate-500/80 text-neutral-900 p-2 rounded-md">
 								{' '}
 								<abbr
 									title="Real Feel Temperature"

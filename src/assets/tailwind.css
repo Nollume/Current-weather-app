@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-	body{
-		@apply bg-neutral-900 text-neutral-200
+	body {
+		@apply bg-neutral-900 text-neutral-200;
 	}
 }
 
@@ -27,5 +27,11 @@
 
 	input::-ms-input-placeholder {
 		@apply text-gray-700 opacity-100;
+	}
+	.wrapper {
+		background-image: url('../assets/img/nic-y-c-WzazSaQF1F8-unsplash.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 }
