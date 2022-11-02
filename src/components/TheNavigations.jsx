@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 const TheNavigation = () => {
 	return (
 		<nav>
-			<ul className="w-full bg-slate-700/50 flex items-center justify-center flex-row gap-4 font-bold mx-auto p-4 relative lg:w-[64rem]">
+			<ul className="w-full  flex items-center justify-center flex-row gap-4 font-bold mx-auto p-4 relative lg:w-[64rem]">
 				<li className=" hover:text-yellow-800 duration-300">
 					<NavLink to="/Current-weather-app">
 						<p className="text-xl capitalize tracking-wider">

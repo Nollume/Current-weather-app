@@ -8,7 +8,7 @@ import sunset from '../assets/icons/icons8-sunset-64.png'
 import sunrise from '../assets/icons/icons8-sunrise-64.png'
 import axios from 'axios'
 
-const ByCity = ({ extractData, changeBg }) => {
+const ByCity = ({ extractData }) => {
 	const [currentLocation, setCurrentLocation] = useState([])
 	const [placeData, setPlaceData] = useState([])
 	const [Loading, setLoading] = useState(false)
@@ -77,10 +77,7 @@ const ByCity = ({ extractData, changeBg }) => {
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [search])
-	useEffect(() => {
-		changeBg(currentLocation.main?.temp)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currentLocation.main?.temp])
+	
 	return (
 		<main className="w-full  px-4">
 			<div className="py-2 relative text-slate-700">
