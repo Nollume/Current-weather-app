@@ -1,5 +1,5 @@
 {
-	"homepage": "https://nollume.github.io/Current-weather-app/",
+	"homepage": "/",
 	"name": "weather-app",
 	"version": "0.1.0",
 	"private": true,
@@ -7,21 +7,16 @@
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
-		"axios": "^0.27.2",
-		"cors": "^2.8.5",
-		"dotenv": "^16.0.3",
-		"express": "^4.18.1",
 		"lodash.debounce": "^4.0.8",
-		"nodemon": "^2.0.20",
 		"react": "^18.2.0",
+		"axios": "^0.27.2",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.4.0",
 		"react-scripts": "5.0.1",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start:backend": "nodemon backend.js",
-		"start:frontend": "react-scripts start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

@@ -12,6 +12,7 @@ function App() {
 	const [Loading, setLoading] = useState(true)
 	const [error, setError] = useState('')
 
+
 	let extractData = ({ main, wind, weather, sys, clouds }) => {
 		const description = weather.find((item) => {
 			return item
@@ -26,7 +27,7 @@ function App() {
 			setLoading(true)
 			try {
 				const response = await axios.get(
-					'http://localhost:8000/current-weather',
+					'https://current-weather-app-nine.vercel.app/current-weather',
 					{
 						params: {
 							lat,
