@@ -27,7 +27,7 @@ function App() {
 			setLoading(true)
 			try {
 				const response = await axios.get(
-					'https://current-weather-app-nine.vercel.app/current-weather',
+					'http://localhost:8000/current-weather',
 					{
 						params: {
 							lat,

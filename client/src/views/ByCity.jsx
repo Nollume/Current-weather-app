@@ -31,7 +31,7 @@ const ByCity = ({ extractData }) => {
 		setError('')
 
 		try {
-			const response = await axios.get('https://current-weather-app-nine.vercel.app/place-weather', {
+			const response = await axios.get('http://localhost:8000/place-weather', {
 				params: {
 					search: encodeURI(search),
 				},
@@ -45,7 +45,7 @@ const ByCity = ({ extractData }) => {
 			const { lat, lon } = response.data[0]
 
 			const responseWeather = await axios.get(
-				'https://current-weather-app-nine.vercel.app/current-weather',
+				'http://localhost:8000/current-weather',
 				{
 					params: {
 						lat,
