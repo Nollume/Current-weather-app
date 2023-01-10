@@ -11,7 +11,7 @@ app.use(cors());
 app.get("/current-weather", (req, res) => {
   const options = {
     method: "GET",
-    url: `https://api.openweathermap.org/data/2.5/weather?lat=${req.query.lat}&lon=${req.query.lon}&appid=${process.env.REACT_APP_RAPID_API_KEY}&units=metric`,
+    url: `https://api.openweathermap.org/data/2.5/weather?lat=${req.query.lat}&lon=${req.query.lon}&appid=${process.env.API_KEY}&units=metric`,
   };
   axios
     .request(options)
@@ -26,7 +26,7 @@ app.get("/current-weather", (req, res) => {
 app.get("/place-weather", async (req, res) => {
   try {
     const response = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${req.query.search}&limit=1&appid=${process.env.REACT_APP_RAPID_API_KEY}`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${req.query.search}&limit=1&appid=${process.env.API_KEY}`
     );
 
     res.json(response.data);
